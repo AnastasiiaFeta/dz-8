@@ -1,0 +1,122 @@
+public class Student {
+    private int id;
+    private String firstName;
+    private String lastName;
+    
+    public Student(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public String getFirstName() {
+        return firstName;
+    }
+    
+    public String getLastName() {
+        return lastName;
+    }
+    
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+}
+
+public class Group {
+    private Student captain;
+    private ArrayList<Student> students;
+    private ArrayList<String> tasks;
+    
+    public Group(Student captain) {
+        this.captain = captain;
+        this.students = new ArrayList<Student>();
+        this.tasks = new ArrayList<String>();
+    }
+    
+    public void setCaptain(Student captain) {
+        this.captain = captain;
+    }
+    
+    public Student getCaptain() {
+        return captain;
+    }
+    
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+    
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
+    
+    public void renameStudent(Student student, String firstName, String lastName) {
+        student.setFirstName(firstName);
+        student.setLastName(lastName);
+    }
+    
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+    
+    public void addTask(String task) {
+        tasks.add(task);
+    }
+    
+    public void markTaskAsDone(Student student, String task) {
+        int index = tasks.indexOf(task);
+        if (index != -1) {
+            tasks.remove(index);
+            student.addDoneTask(task);
+        }
+    }
+}
+
+public class Student {
+    private int id;
+    private String firstName;
+    private String lastName;
+    private ArrayList<String> doneTasks;
+    
+    public Student(int id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.doneTasks = new ArrayList<String>();
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public String getFirstName() {
+        return firstName;
+    }
+    
+    public String getLastName() {
+        return lastName;
+    }
+    
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
+    public ArrayList<String> getDoneTasks() {
+        return doneTasks;
+    }
+    
+    public void addDoneTask(String task) {
+        doneTasks.add(task);
+    }
+}
